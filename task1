@@ -1,0 +1,23 @@
+class IllegalCarError(Error):
+    """This Car is unsuitable to drive the streets of this Country!!"""
+    """Please consider the min and max passanger number can be 1 and 5 respectively."""
+    """The maximum car weight without passangers should not be greater than 2000kg!"""
+
+class Car:
+    avgweight = 70
+    
+    def __init__(self,pax_count=4,car_mass=1500,gear_count=5):
+        self.pax_count = pax_count
+        self.car_mass = car_mass
+        self.gear_count = gear_count
+        
+    def total_mass(self):
+        return self.car_mass + avgweight
+    
+    if pax_count > 5 or pax_count < 1:
+            return IllegalCarError(Error)
+            
+    if car_mass >2000:
+            return IllegalCarError(Error)
+            
+c = Car(3, 1600, 5)
