@@ -12,3 +12,76 @@ Going from left to right, the digits never decrease; they only ever increase or 
 How many numbers do you have to check? Or, in other words, how many numbers meet all the three criteria?
 
 
+digilist = []
+for i in range(372002,809002):
+    digilist.append(i)
+
+def splitter(number):
+    result = [int(i) for i in str(number)]
+    return result
+ 
+def doubledigit(listed):
+
+    code0 = [0,0,'x']
+    code1 = [1,1,'x']
+    code2 = [2,2,'x']
+    code3 = [3,3,'x']
+    code4 = [4,4,'x']
+    code5 = [5,5,'x']
+    code6 = [6,6,'x']
+    code7 = [7,7,'x']
+    code8 = [8,8,'x']
+    code9 = [9,9,'x']
+    
+    for num in listed:
+        if num == code0[0]:
+            code0.pop(0)
+        elif num == code1[0]:
+            code1.pop(0)
+        elif num == code2[0]:
+            code2.pop(0)
+        elif num == code3[0]:
+            code3.pop(0)
+        elif num == code4[0]:
+            code4.pop(0)
+        elif num == code5[0]:
+            code5.pop(0)
+        elif num == code6[0]:
+            code6.pop(0)
+        elif num == code7[0]:
+            code7.pop(0)
+        elif num == code8[0]:
+            code8.pop(0)
+        elif num == code9[0]:
+            code9.pop(0)
+    total = 0
+    if len(code1) == 1:
+        total += 1 
+    if len(code2) == 1:
+        total += 1
+    if len(code3) == 1:
+        total += 1
+    if len(code4) == 1:
+        total += 1
+    if len(code5) == 1:
+        total += 1
+    if len(code6) == 1:
+        total += 1
+    if len(code7) == 1:
+        total += 1
+    if len(code8) == 1:
+        total += 1
+    if len(code9) == 1:
+        total += 1
+                                    
+    return total == 2
+        
+def increment(lis):
+    for i in range (0,len(lis)):
+        if lis[i+1] >= lis[i]:
+            return True
+        else:
+            return False
+            
+
+            
