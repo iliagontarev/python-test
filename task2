@@ -1,7 +1,78 @@
+'''
+Chapter II
+
 tasks.py add --name Cleaning [--deadline DATETIME] [--description DESCRIPTION]
 tasks.py update [--name Cleaning] [--deadline DATETIME] [--description DESCRIPTION] TASK_HASH
 tasks.py remove TASK_HASH
 tasks.py list [--all | --today]
+'''
 
 
-Create it
+tasks = [
+  ['email', 9, 15, 2, 0, 70, 'Answer all the emails received today.'],
+  ['coffee', 10, 1, 8, 25, 5, 'making coffee'],
+  ['meeting', 3, 5, 12, 0, 80, 'group meeting'],
+  ['sleep', 12, 8, 3, 20, 280, 'getting some sleep'],
+  ['meeting', 10, 1, 17, 0, 60, 'group meeting'],
+  ['laundry', 3, 5, 21, 0, 40, 'do laundry'],
+  ['office hours', 10, 1, 14, 0, 120, 'Office hours for Biology II'],
+  ['class', 3, 5, 15, 0, 50, 'CS1 class'],
+  ['laundry', 11, 5, 13, 0, 80, 'Laundry'],
+  ['laundry', 10, 1, 19, 45, 40, 'Do laundry'],
+  ['lunch', 10, 1, 12, 0, 30, 'Lunch time'],
+  ['class', 3, 5, 10, 0, 50, 'Philosophy class'],
+  ['break', 2, 1, 11, 0, 45, 'quick break before lunch.'],
+  ['exam prep', 11, 13, 10, 0, 600, 'study for the exam.']]
+
+
+def make_date_from_tasks(tasks):
+  dates = []
+  for task in tasks:
+    dates.append([task[1], task[2]])
+  return dates
+
+dates = make_date_from_tasks(tasks)
+
+def task_month(number):
+    if number == 1:
+        return 'January'
+    if number == 2:
+        return 'February'
+    elif number == 3:
+        return 'March'
+    elif number == 4:
+        return 'April'
+    elif number == 5:
+        return 'May'
+    elif number == 6:
+        return 'June'
+    elif number == 7:
+        return 'July'
+    elif number == 8:
+        return 'August'
+    elif number == 9:
+        return 'September'
+    elif number == 10:
+        return 'October'
+    elif number == 11:
+        return 'November'
+    else:
+        return 'December'
+
+def print_tasks(tasks, date_list):
+    for task in tasks:
+      if task[1] == date[0] and task[2] == date[1]:
+        if task[3] > 12:
+          start_time = ' PM'
+          task[3] -= 12
+        else:
+          start_time = ' AM'
+        if task[3] > 12:
+          end_time = ' PM'
+          task[3] -= 12
+        else:
+          end_time = ' AM'
+        print statements (I’m confused as to what to write here to format it correctly)
+
+for date in dates:
+  print_tasks(tasks, date)
