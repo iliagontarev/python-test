@@ -1,8 +1,24 @@
-class IllegalCarError(Error):
-    """This Car is unsuitable to drive the streets of this Country!!"""
-    """Please consider the min and max passanger number can be 1 and 5 respectively."""
-    """The maximum car weight without passangers should not be greater than 2000kg!"""
+'''
+CHAPTER I
+Implement a Car class that has the following attributes:
+ pax_count -- number of passengers riding in the car (including the driver),
+ car_mass -- mass of the empty car (in kg),
+ gear_count -- number of gears.
 
+All of them should be specified on Car instance creation.
+It should also be possible to retrieve the total mass estimate of a car instance, assuming that an average person weight is 70 kg:
+However, all the cars allowed to be used on public roads have to satisfy some legal requirements. The requirements in this case are the following:
+passanger count cannot be greater than 5, or less than 1, Car mass (excluding the passengers) cannot be greater than 2000 kg.
+In case you try to create a car instance which does not meet these requirements, a custom (written by you) IllegalCarError exception should be raised:
+Assignments with illegal values should also produce the same error: IllegalCarError with an appropriate message
+'''
+
+def IllegalCarError():
+    print('"""This Car is unsuitable to drive the streets of this Country!!"""')
+    print('"""Please consider the min and max passanger number can be 1 and 5 respectively."""')
+    print('"""The maximum car weight without passangers should not be greater than 2000kg!"""')
+
+    
 class Car:
     avgweight = 70
     
@@ -13,11 +29,12 @@ class Car:
         
     def total_mass(self):
         return self.car_mass + avgweight
-    
-    if pax_count > 5 or pax_count < 1:
-            return IllegalCarError(Error)
+        
+    def check_legal(self):
+        if self.pax_count > 5 or self.pax_count < 1 or self.car_mass >2000:
+            return IllegalCarError()
+        else:
+            return 'The Car is safe on public roads'
             
-    if car_mass >2000:
-            return IllegalCarError(Error)
+c = Car(3, 2000, 6)
             
-c = Car(3, 1600, 5)
