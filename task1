@@ -13,28 +13,52 @@ In case you try to create a car instance which does not meet these requirements,
 Assignments with illegal values should also produce the same error: IllegalCarError with an appropriate message
 '''
 
-def IllegalCarError():
-    print('"""This Car is unsuitable to drive the streets of this Country!!"""')
-    print('"""Please consider the min and max passanger number can be 1 and 5 respectively."""')
-    print('"""The maximum car weight without passangers should not be greater than 2000kg!"""')
+class IllegalCarError(Exception):
+    pass
 
+class Car(object):
+    avg_person_mass = 70
     
-class Car:
-    avgweight = 70
-    
-    def __init__(self,pax_count=4,car_mass=1500,gear_count=5):
+    def __init__(self, pax_count, car_mass, gear_count):
         self.pax_count = pax_count
         self.car_mass = car_mass
         self.gear_count = gear_count
-        
+    
+    @property
     def total_mass(self):
-        return self.car_mass + avgweight
+        return self.car_mass + (self.avg_person_mass * self.pax_count)
         
-    def check_legal(self):
-        if self.pax_count > 5 or self.pax_count < 1 or self.car_mass >2000:
-            return IllegalCarError()
+    @pax_count.setter
+    def pax_count(self, count):
+        if count<1:
+            raise IllegalCarError('Minimum passanger required: 1')
+        elif count>5:
+            raise IllegalCarError('Maximum number of passanger is 5!')
         else:
-            return 'The Car is safe on public roads'
+            self.__pax_count = count
+    
+    @property
+    def pax_count(self):
+        return self.__pax_count
+        
+    @car_mass.setter
+    def car_mass(self, mass):
+        if mass > 2000:
+            raise IllegalCarError("Car mass exceeds the maximum legal weight, sould be less than 2000.")
+        else:
+            self.__car_mass = mass
+    
+    @property
+    def car_mass(self):
+        return self.__car_mass
+        
+    @gear_count.setter
+    def gear_count(self, count):
+        self.__gear_count = count
+    
+    @property
+    def gear_count(self):
+        return self.__gear_count
             
-c = Car(3, 2000, 6)
-            
+c = Car(3, 1600, 5)
+        
