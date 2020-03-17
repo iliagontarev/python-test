@@ -1,3 +1,6 @@
+import json
+
+TASKS_FILE = 'tasks.json'
 '''
 Chapter II 
 A script to manage the task list. 
@@ -34,6 +37,14 @@ tasks = [
   ['Work', '6', '2', '10', '01', 'Work your ass off in Python and be succesful'],
   ['Cycling', '6', '3', '6', '01', 'Train to stay mentally and physically healthy'],
   ['Work', '6', '4', '10', '10', 'Work your ass off in Python and be succesful']]
+
+  
+with open(TASKS_FILE, 'w') as json_file:
+  json.dump(tasks, json_file)
+  
+  
+with open(TASKS_FILE) as f:
+  tasks = json.load(f)
   
   
 def print_tasks():
