@@ -17,7 +17,7 @@ class IllegalCarError(Exception):
 class Car(object):
     avg_person_mass = 70
 
-    def init(self, pax_count, car_mass, gear_count):
+    def __init__(self, pax_count, car_mass, gear_count):
         self.pax_count = pax_count
         self.car_mass = car_mass
         self.gear_count = gear_count
