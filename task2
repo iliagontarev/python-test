@@ -5,6 +5,38 @@ Provides a text user interface with options to list, add, edit and delete tasks.
 The tasks are identified by a hash value calculated from its contents
 '''
 
+def print_tasks(tasks, date_list):
+    """Print all the tasks for the given date from the given list of tasks.
+
+    Arguments:
+    tasks--A nested list, where each inner list represents the information on
+    a single task.
+    date_list--a list of two integers representing the month and day for which
+    the tasks should be printed. For example, [10, 1] represents Oct. 10th
+    (month=10, day=1).
+    """
+    for task in tasks:
+        if task[1] == date[0] and task[2] == date[1]:
+            if task[3] > 12:
+                start_time = ' PM'
+                task[3] -= 12
+            else:
+                start_time = ' AM'
+            if task[3] > 12:
+                end_time = ' PM'
+                task[3] -= 12
+            else: end_time = ' AM'
+            print 'Task Name:', task[0]
+            print 'Start time:', task[3], ':', task[4]
+            print 'End time:'
+
+def main():
+    """
+    Main funciton
+    """
+    # The variable tasks is the nested list storing the tasks.
+    return None
+
 
 tasks = [
   ['email', 9, 15, 2, 0, 70, 'Answer all the emails received today.'],
