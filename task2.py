@@ -56,6 +56,9 @@ def print_tasks():
     
     
 def add_task():
+    '''
+    Simple function adds another element to the Task list, requires input from the user.
+    '''
     print('In order to add another task please fill in the following information')
     a = str(input('Step 1: Please write a name of the task: '))
     b = str(input('Step 2: Enter month: (1-12): '))
@@ -71,6 +74,9 @@ def add_task():
   
   
 def edit_task():
+    '''
+    A task edtior function. Takes exising list element at a specified index and changes are aplied via user input.
+    '''
     choose = 0
     print('In order to make edits to an exisitng task element please fill in the following information')
     while choose == 0:
@@ -93,6 +99,9 @@ def edit_task():
     
 
 def remove_task():
+    '''
+    A function that deletes an element at a specified index.
+    '''
     choose = 0
     while choose == 0:
         try:
