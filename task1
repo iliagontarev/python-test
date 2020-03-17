@@ -1,16 +1,13 @@
 '''
 CHAPTER I
-Implement a Car class that has the following attributes:
+Car class that has the following attributes:
  pax_count -- number of passengers riding in the car (including the driver),
  car_mass -- mass of the empty car (in kg),
  gear_count -- number of gears.
-
-All of them should be specified on Car instance creation.
-It should also be possible to retrieve the total mass estimate of a car instance, assuming that an average person weight is 70 kg:
-However, all the cars allowed to be used on public roads have to satisfy some legal requirements. The requirements in this case are the following:
-passanger count cannot be greater than 5, or less than 1, Car mass (excluding the passengers) cannot be greater than 2000 kg.
-In case you try to create a car instance which does not meet these requirements, a custom (written by you) IllegalCarError exception should be raised:
-Assignments with illegal values should also produce the same error: IllegalCarError with an appropriate message
+ 
+It is possible to retrieve the total mass estimate of a car instance, assuming that an average person weight is 70 kg:
+The requirements in this case are the following: passanger count cannot be greater than 5, or less than 1, Car mass (excluding the passengers) cannot be greater than 2000 kg.
+In case one tries to create a car instance which does not meet these requirements, IllegalCarError is raised.
 '''
 
 class IllegalCarError(Exception):
